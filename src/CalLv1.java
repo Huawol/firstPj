@@ -15,7 +15,8 @@ public class CalLv1 {
             }
             System.out.print("어떤 사칙 연산을 하실건가요? : ");
             String operations = scanner.nextLine();
-            operations.charAt(0); // 연산자 출력
+            operations.charAt(0);
+            // 연산자 출력
             switch (operations){
                 case "*":
                     System.out.println(num1 + " * "+ num2+"="+num1*num2);
