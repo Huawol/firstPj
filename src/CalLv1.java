@@ -23,10 +23,7 @@ public class CalLv1 {
 
             System.out.print("두번째 숫자를 입력해주세요 : ");
             int num2 = scanner.nextInt();
-            if(num2 == 0){
-                System.out.println("0 을 제외한 숫자를 입력해주세요");
-                continue; // 0 을 입력하면 처음 부터 입력하게 만듬
-            }else if (num2 < 0) {
+            if (num2 < 0) {
                 num2 = num2 * -1;
             }
 
@@ -41,6 +38,10 @@ public class CalLv1 {
                     System.out.println(num1 + " - "+ num2+" = "+(num1-num2));
                     break;
                 case '/':
+                    if(num2==0){
+                        System.out.println("0으로 나눌수 없습니다.");
+                        continue;
+                    }
                     System.out.println(num1 + " / "+ num2+" = "+(num1/num2));
                     break;
                 default:
@@ -53,8 +54,7 @@ public class CalLv1 {
             if(exit.equals("exit")){
                 System.out.println("프로그램이 종료됩니다.");
                 return;
-            }else
-                continue;
+            }
         }
     }
 }
