@@ -1,10 +1,14 @@
 package calculatorLv2;
 
+import java.util.ArrayList;
+
 public class Calculator {
     // 속성
     int num1;
     int num2;
     char operation;
+    int numResult = 0;
+    /*ArrayList<Object> saveResult = new ArrayList<>();*/
 
     // 생성자 (값 받아오기)
     Calculator(int value1, String value2, int value3) {
@@ -15,8 +19,9 @@ public class Calculator {
     }
 
     // 기능 ( 연산하기 )
+    // 연산 메서든
     int result(){
-        int numResult = 0;
+
         switch (operation){
             case '+' :
                 numResult = num1 + num2;
@@ -39,6 +44,17 @@ public class Calculator {
         }
         return numResult;
     }
+
+    // 결과값 저장 메서드
+    /*int save() {
+        saveResult.add(numResult);
+    }*/
+
+
+
+
+
+
 
     // getter
 
