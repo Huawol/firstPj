@@ -21,10 +21,19 @@ public class CalLv1 {
 
             switch (operations.charAt(0)){
                 case '*':
-                    System.out.println(num1 + " * "+ num2+" = "+num1*num2);
+                    System.out.println(num1 + " * "+ num2+" = "+(num1*num2));
                     break;
                 case '+':
-                    System.out.println();
+                    System.out.println(num1 + " + "+ num2+" = "+(num1+num2));
+                    break;
+                case '-':
+                    System.out.println(num1 + " - "+ num2+" = "+(num1-num2));
+                    break;
+                case '/':
+                    System.out.println(num1 + " / "+ num2+" = "+(num1/num2));
+                    break;
+                default:
+                    System.out.println("오류");
             }
 
 
