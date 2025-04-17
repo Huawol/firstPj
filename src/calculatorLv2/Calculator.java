@@ -47,19 +47,18 @@ public class Calculator {
                 return numResult;
             default:
                  System.out.println("잘 못 입력된 값이 있습니다.");
+                 break;
         }
         return numResult;
     }
 
     // 결과값 저장 메소드
     void saveResult1(){
-        saveLists.add(result(num1, String.valueOf(operation), num2));
-        System.out.println("저장된 숫자 : "+ saveLists);
+        saveLists.add(numResult);
     }
 
-
     // 결과값 삭제 메소드
-    public void removeResult(int pick) {
+    void removeResult(int pick) {
         try { // 삭제 할게 없는데 삭제하려고 하면 오류가 뜨면서 종료되는걸 예외처리함
             if(pick == 0) {
                 saveLists.remove(0);
