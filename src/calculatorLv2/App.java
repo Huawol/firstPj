@@ -45,7 +45,7 @@ public class App{
                     System.out.println(ca.saveLists);
                     System.out.print("가장 오래된 값을 지우려면 숫자 0을 입력해주세요 : ");
                     int pick = scanner.nextInt();
-                    ca.removeResult(pick);
+                    ca.getNumPick(pick);
                     break;
             }
         }

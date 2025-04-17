@@ -54,14 +54,12 @@ public class Calculator {
 
     // 결과값 저장 메소드
     void saveResult1(){
-        saveLists.add(numResult);
+        saveLists.add(numResult); // 저장 메소드에서 저장하는 기능만 넣어야함
+        // 전에 출력문도 같이 넣었다보니 오류가 발생했음
     }
 
     // 결과값 삭제 메소드
-
-
-
-    void removeResult(int pick) {
+    private int removeResult(int pick) {
         try { // 삭제 할게 없는데 삭제하려고 하면 오류가 뜨면서 종료되는걸 예외처리함
             if(pick == 0) {
                 saveLists.remove(0);
@@ -77,24 +75,17 @@ public class Calculator {
         } catch (InputMismatchException ime){
             System.out.println("0이 아닌 다른것을 입력했습니다.");
         }
+        return pick;
+    }
+    // getter - 안전하게 접근
+    public int getNumPick(int num1) {
+        return this.removeResult(num1);
     }
 
-
-
-
-
-
-
-
-
-
-
-    // getter
-
-    // setter
-    /*void setOperation(String operation) {
-        this.operation = operation.charAt(0);
-    }*/
+    // setter - 안전하게 설정 변경
+    public void setNumPick(int num1) {
+        this.removeResult(num1);
+    }
 
 
 
