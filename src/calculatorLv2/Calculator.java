@@ -58,6 +58,9 @@ public class Calculator {
     }
 
     // 결과값 삭제 메소드
+
+
+
     void removeResult(int pick) {
         try { // 삭제 할게 없는데 삭제하려고 하면 오류가 뜨면서 종료되는걸 예외처리함
             if(pick == 0) {
