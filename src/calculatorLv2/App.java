@@ -11,7 +11,7 @@ public class App{
         Scanner scanner = new Scanner(System.in);
         int selectNum = 0;
         String exitCommend;
-        ArrayList<Object> saveResult = new ArrayList<>();
+        /*ArrayList<Object> saveResult = new ArrayList<>();*/
 
         while (true) {
             System.out.println("=============================");
@@ -19,7 +19,7 @@ public class App{
             System.out.println("=============================");
             System.out.print("=========== 값을 입력해주세요 : ");
             selectNum = scanner.nextInt();
-
+            Calculator ca = new Calculator();
 
             switch (selectNum) {
                 case 1 :
@@ -29,8 +29,7 @@ public class App{
                     String oper = scanner.next();
                     System.out.print("두번째 정수를 입력하세요 : ");
                     int secondNum = scanner.nextInt();
-                    Calculator ca = new Calculator(firstNum,oper,secondNum);
-                    saveResult.add(ca.result());
+                    System.out.println("계산 결과 : " + (ca.result(firstNum,oper,secondNum)));
                     break;
 
                 case 2:
@@ -42,13 +41,10 @@ public class App{
                     } break;
 
                 case 3:
-                    System.out.println("저장 된 숫자: " + saveResult);
+                    ca.saveResult1();
                     System.out.print("가장 오래된 값을 지우려면 숫자 0을 입력해주세요 : ");
                     int pick = scanner.nextInt();
-                    if(pick == 0) {
-                        saveResult.remove(pick);
-                        System.out.println("삭제 되었습니다. 남은 숫자 : " + saveResult);
-                    }
+                    ca.removeResult(pick);
             }
         }
     }
