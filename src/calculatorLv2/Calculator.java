@@ -10,7 +10,6 @@ public class Calculator {
     char operation;
     int numResult = 0;
     ArrayList<Object> saveResult = new ArrayList<>();
-
     // 생성자 (값 받아오기)
     Calculator(int value1, String value2, int value3) {
         this.num1 = value1;
@@ -62,14 +61,14 @@ public class Calculator {
             }
         }catch (IndexOutOfBoundsException e) {
             System.out.println("더 이상 삭제할게 없습니다.");
-        }
+        }/*
         try {
             if (pick != 0) {
                 System.out.println("0이 아닌 다른것을 입력하셨습니다.");
             }
         } catch (InputMismatchException ime){
             System.out.println("0이 아닌 다른것을 입력했습니다.");
-        }
+        }*/
     }
 
 
