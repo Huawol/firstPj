@@ -16,10 +16,11 @@ public class App {
 
         while (true) {
             System.out.println("=============================");
-            System.out.println(" 1. 계산기 2. 종료 3. 숫자 삭제  ");
+            System.out.println(" 1. 계산기 2. 종료  3. 숫자 삭제 ");
             System.out.println("=============================");
             System.out.print("=========== 값을 입력해주세요 : ");
             selectNum = scanner.nextInt();
+
             if (selectNum == 1) {
                 // 입력란
                 System.out.print("첫번째 정수를 입력하세요 : ");
@@ -28,12 +29,13 @@ public class App {
                 String oper = scanner.next();
                 System.out.print("두번째 정수를 입력하세요 : ");
                 int secondNum = scanner.nextInt();
+
                 // 결과 계산되서 출력디는 란
                 Calculator ca = new Calculator(firstNum,oper,secondNum);
                 System.out.println("결과값은 : " + ca.result());
 
                 // 결과값 계속 배열로 축적
-                /*saveResult.add(ca.result())*/;
+                saveResult.add(ca.result());
 
             } else if (selectNum == 2) {
                 System.out.print("종료하기 위해서 exit 을 입력해주세요 : ");
@@ -46,10 +48,8 @@ public class App {
                 System.out.println("저장 된 숫자: " + saveResult);
                 System.out.print("가장 오래된 값을 지우려면 숫자 0을 입력해주세요 : ");
                 int pick = scanner.nextInt();
-                if(pick == 0) {
-                    saveResult.remove(0);
-                    System.out.println("삭제 되었습니다. 남은 숫자 : " + saveResult);
-                }
+                //removeResult(pick);
+                // getter 로 받아야할듯
             }
         }
     }
