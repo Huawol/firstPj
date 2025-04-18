@@ -1,93 +1,74 @@
 package calculatorLv2;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 
+// public 이나  private 사용하기
 public class Calculator {
     // 속성
-    int num1;
-    int num2;
-    char operation;
-    int numResult = 0;
-    ArrayList<Object> saveLists = new ArrayList<>();
+    private int firstNum;
+    private int secondNum;
+    private char operator;
+    private int calculatorResult = 0;
+    public ArrayList<Integer> saveList = new ArrayList<>();
+    //Object 는 불필요한 공간을 만듬 그러니까 필요한 공간만 사용할수 있도록 타입 설정해주기
+    // 리스트에 s 붙이면 복수형이 되니까 리스트 안에 리스트 넣을꺼 아니면 사용하지 않기
 
-
-    // 기본 생성자
+    // 기본 생성자 꼭필요할때는 명시적으로 작성하는게 좋다.
     Calculator(){}
 
     // 기능 ( 연산하기 )
-    // 연산 메서든 ( 여기서 값 받아오기 )
-    int result(int value1, String value2, int value3) {
-        this.num1 = value1;
-        this.num2 = value3;
-        this.operation = value2.charAt(0);
-        if (num1 < 0) { // 음수를 양수로 전환
-            num1 *= -1;
+    // 연산 메서든 ( 여기서 값 받아오기 ) 이름을 동사로 바꿔야한다..
+    public int calculate(int firstNum, String calculatorOperator, int secondNum) {
+        this.firstNum = firstNum;
+        this.secondNum = secondNum;
+        this.operator = calculatorOperator.charAt(0);
+        if (this.firstNum < 0) { // 음수를 양수로 전환
+            this.firstNum *= -1;
         }
-        if (num2 < 0) {
-            num2 *= -1;
+        if (secondNum < 0) {
+            secondNum *= -1;
         }
 
-        switch (operation){
+        switch (operator){ // 오직 계산기능만 들어감
             case '+' :
-                numResult = num1 + num2;
-                return numResult;
+                calculatorResult = this.firstNum + secondNum;
+                return calculatorResult;
             case '-':
-                numResult = num1 - num2;
-                return numResult;
+                calculatorResult = this.firstNum - secondNum;
+                return calculatorResult;
             case '*':
-                numResult = num1 * num2;
-                return numResult;
+                calculatorResult = this.firstNum * secondNum;
+                return calculatorResult;
             case '/':
-                if (num2 == 0) {
-                    System.out.println("0으로는 나눌수 없습니다.");
-                    break;
-                }
-                numResult = num1 / num2;
-                return numResult;
+                calculatorResult = this.firstNum / secondNum;
+                return calculatorResult;
+
             default:
                  System.out.println("잘 못 입력된 값이 있습니다.");
                  break;
         }
-        return numResult;
+        return calculatorResult;
     }
 
     // 결과값 저장 메소드
-    void saveResult1(){
-        saveLists.add(numResult); // 저장 메소드에서 저장하는 기능만 넣어야함
+    public void saveResult(){
+        saveList.add(calculatorResult); // 저장 메소드에서 저장하는 기능만 넣어야함
         // 전에 출력문도 같이 넣었다보니 오류가 발생했음
     }
 
-    // 결과값 삭제 메소드
-    private int removeResult(int pick) {
-        try { // 삭제 할게 없는데 삭제하려고 하면 오류가 뜨면서 종료되는걸 예외처리함
-            if(pick == 0) {
-                saveLists.remove(0);
-                System.out.println("삭제 되었습니다. 남은 숫자 : " + saveLists);
-            }
-        }catch (IndexOutOfBoundsException e) {
+    // 결과값 삭제 메소드  0을 굳이 받을 필요는 없다.
+    private void removeResult() {
+
+        try {
+            saveList.remove(0);
+            System.out.println("삭제 되었습니다. 남은 숫자 : " + saveList);
+        } catch (IndexOutOfBoundsException e) {
             System.out.println("더 이상 삭제할게 없습니다.");
         }
-        try {
-            if (pick != 0) {
-                System.out.println("0이 아닌 다른것을 입력하셨습니다.");
-            }
-        } catch (InputMismatchException ime){
-            System.out.println("0이 아닌 다른것을 입력했습니다.");
-        }
-        return pick;
-    }
-    // getter - 안전하게 접근
-    public int getNumPick(int num1) {
-        return this.removeResult(num1);
     }
 
-    // setter - 안전하게 설정 변경
-    public void setNumPick(int num1) {
-        this.removeResult(num1);
+    // getter - 안전하게 접근 // 삭제버튼 접근 제한,
+    public void getRemoveResult() {
+        removeResult();
     }
-
-
-
-
 }
