@@ -1,6 +1,7 @@
 package calculatorLv2;
 
 import java.util.ArrayList;
+import java.util.List;
 
 // public 이나  private 사용하기
 public class Calculator {
@@ -14,7 +15,7 @@ public class Calculator {
     //
 
     private int calculatorResult = 0;
-    public ArrayList<Integer> saveList = new ArrayList<>();
+    public List<Integer> saveList = new ArrayList();
     // 숫자를 저장하기때문에 배열타입을 Interger로만 해도 충분
     // Object 는 불필요한 공간을 만듬 그러니까 필요한 공간만 사용할수 있도록 타입 설정해주기
     // 리스트에 s 붙이면 복수형이 되니까 리스트 안에 리스트 넣을꺼 아니면 사용하지 않기
