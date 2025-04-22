@@ -7,9 +7,6 @@ import java.util.List;
 public class Calculator {
     // 속성
 
-    /*private int firstNum;
-    private int secondNum;
-    private char operator;*/
     // 계산기 기능에서는 딱히 필요가 없음 멀티 쓰레드 발생시 원하는 결과값이 나오지 않을수 있음
     // 만약 이용하고 싶으면 메인에 있는 ca를 반복문 안으로 넣고 계산기가 계속 만들어지도록 설정을 해야함
     //
@@ -51,9 +48,12 @@ public class Calculator {
                 calculatorResult = firstNum * secondNum;
                 return calculatorResult;
             case "/":
+                if(calculatorOperator.equals("/") && secondNum == 0){
+                    System.out.println(" 0 으로 나눌수 없습니다. ");
+                    break;
+                }
                 calculatorResult = firstNum / secondNum;
                 return calculatorResult;
-
             default:
                 System.out.println("잘 못 입력된 값이 있습니다.");
                 break;

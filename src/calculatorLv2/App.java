@@ -21,24 +21,17 @@ public class App {
                 selectNum = scanner.nextInt();
 
                 switch (selectNum) { // 여기 단계에서 연산자와 두번째 정수를 받은걸로 if문 써서하면 불필요한 코드를 줄일수있다.
+
                     case 1:
                         System.out.print("첫번째 정수를 입력하세요 : ");
                         int firstNum = scanner.nextInt();
-
-                        System.out.print("연산자를 입력하세요 : ");
+                        System.out.print(" + - * / 중 하나를 선택해주세요 :");
                         String operator = scanner.next();
                         System.out.print("두번째 정수를 입력하세요 : ");
                         int secondNum = scanner.nextInt();
-
-                        if (operator.equals("/") && secondNum == 0) { // 0으로 나누면 다시 처음으로 돌아가게 만드는 기능
-                            System.out.println(" 0 으로 나눌수 없습니다. ");
-                            break;
-                        }
-
                         System.out.println("계산 결과 : " + (calculator.calculate(firstNum, operator, secondNum)));
                         calculator.saveResult();
                         break;
-
                     case 2:
                         System.out.print("종료하기 위해서 exit 을 입력해주세요 : ");
                         String exitCommend = scanner.next();
@@ -55,11 +48,8 @@ public class App {
                 }
             }
         } catch (InputMismatchException e) {
-            System.out.println("번호를 눌러주세요");
+            System.out.println("숫자말고 다른걸 입력했습니다. 다시 시작해주세요");
         }
-
-
-
 
 
     }
