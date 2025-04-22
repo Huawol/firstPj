@@ -9,20 +9,21 @@ public class App {
 
 
         System.out.print("숫자 : ");
-        int result1 = scanner.nextInt();
+        int firstNum = scanner.nextInt();
 
         System.out.print("+ - * / : ");
-        String result3 = scanner.next();
+        String type = scanner.next();
 
         System.out.print("숫자 : ");
-        int result2 = scanner.nextInt();
+        int secondNum = scanner.nextInt();
 
 
 
-        Calculator.Operation operation = Calculator.Operation.selectSymbol(result3);
+        Calcul operation = Calcul.selectSymbol(type);
 
-        double result = operation.math(result1, result2);
+        double result = operation.math(firstNum, secondNum);
 
         System.out.println("result = " + result);
+
     }
 }
