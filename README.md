@@ -21,3 +21,11 @@ start
 UML
 
 ![package](https://github.com/user-attachments/assets/b8c5e8f4-cbcb-41e9-9326-7871483fb69a)
+
+
+예외처리 
+
+1. InputMismatchException 예외처리 과정에서 \n이 남아서 무한루프를 만들어버리는 오류를 해결
+
+2. InputMismatchException 예외처리
+   https://taehyon.tistory.com/36
