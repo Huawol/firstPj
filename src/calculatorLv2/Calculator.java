@@ -9,9 +9,8 @@ public class Calculator {
 
     // 계산기 기능에서는 딱히 필요가 없음 멀티 쓰레드 발생시 원하는 결과값이 나오지 않을수 있음
     // 만약 이용하고 싶으면 메인에 있는 ca를 반복문 안으로 넣고 계산기가 계속 만들어지도록 설정을 해야함
-    //
 
-    private int calculatorResult = 0;
+
     public List<Integer> saveList = new ArrayList();
     // 숫자를 저장하기때문에 배열타입을 Interger로만 해도 충분
     // Object 는 불필요한 공간을 만듬 그러니까 필요한 공간만 사용할수 있도록 타입 설정해주기
@@ -36,49 +35,24 @@ public class Calculator {
         if (secondNum < 0) {
             secondNum *= -1;
         }
-
+        //
         switch (calculatorOperator) { // 오직 계산기능만 들어감
             case "+":
-                calculatorResult = firstNum + secondNum;
-                return calculatorResult;
+                return firstNum + secondNum;
             case "-":
-                calculatorResult = firstNum - secondNum;
-                return calculatorResult;
+                return firstNum - secondNum;
             case "*":
-                calculatorResult = firstNum * secondNum;
-                return calculatorResult;
+                return firstNum * secondNum;
             case "/":
                 if(calculatorOperator.equals("/") && secondNum == 0){
                     System.out.println(" 0 으로 나눌수 없습니다. ");
                     break;
                 }
-                calculatorResult = firstNum / secondNum;
-                return calculatorResult;
+                return firstNum / secondNum;
             default:
                 System.out.println("잘 못 입력된 값이 있습니다.");
                 break;
         }
-        return calculatorResult;
-    }
-
-    // 결과값 저장 메소드
-    public void saveResult() {
-        saveList.add(calculatorResult); // 저장 메소드에서 저장하는 기능만 넣어야함
-        // 전에 출력문도 같이 넣었다보니 오류가 발생했음
-    }
-
-    // 결과값 삭제 메소드  0을 굳이 받을 필요는 없다.
-    private void removeResult() {
-        try {
-            saveList.remove(0);
-            System.out.println("삭제 되었습니다. 남은 숫자 : " + saveList);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("더 이상 삭제할게 없습니다.");
-        }
-    }
-
-    // getter - 안전하게 접근 // 삭제버튼 접근 제한,
-    public void getRemoveResult() {
-        removeResult();
+        return 0;
     }
 }

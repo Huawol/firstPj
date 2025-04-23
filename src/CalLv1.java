@@ -7,6 +7,7 @@ public class CalLv1 {
         Scanner scanner = new Scanner(System.in);
         int num1 = 0;
         int num2 = 0;
+        String operations;
 
         while (true) {
 
@@ -30,7 +31,7 @@ public class CalLv1 {
 
 
             System.out.print("어떤 사칙 연산을 하실건가요? ( + - * / ) : ");
-            String operations = scanner.next(); // 반복문 안에서는 next와 nextLine의 차이가 있는데
+            operations = scanner.next(); // 반복문 안에서는 next와 nextLine의 차이가 있는데
             // nextLine에 개행(\n)이 남아서 바로 다음으로 넘어가게됨
             operations.charAt(0);
 
@@ -53,7 +54,6 @@ public class CalLv1 {
                     System.out.println(num1 + " / " + num2 + " = " + (num1 / num2));
                     break;
                 default:
-                    System.out.println("오류");
                     return;
             }
 
